@@ -1,0 +1,177 @@
+// Sidebar Styles for Spotify Clone 
+
+// Common Sidebar Properties (Left & Right)
+.sidebar-left,
+.sidebar-right {
+  &__library {
+    padding: $spacing-md $spacing-md;
+  }
+
+  &__library-title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-bold;
+    color: $fg-primary; // No longer uppercase to match modern Figma
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: $fg-secondary;
+    }
+  }
+}
+
+// Sidebar Navigation
+.sidebar-nav {
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-xs;
+  }
+
+  &__item {
+    border-radius: $radius-sm;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $bg-hover;
+      .sidebar-nav__text {
+        color: $fg-primary;
+      }
+    }
+
+    &--active {
+      background-color: $bg-hover;
+
+      .sidebar-nav__text {
+        color: $spotify-green;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: 10px $spacing-md;
+    color: $fg-secondary;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+  }
+
+  &__text {
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// Right Sidebar - Friends Activity
+.friends-activity {
+  padding: $spacing-md;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-bold;
+    color: $fg-primary;
+  }
+
+  &__icons {
+    display: flex;
+    gap: $spacing-xs;
+  }
+
+  .friends-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  .friend-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    cursor: pointer;
+
+    &:hover .friend-item__name {
+      text-decoration: underline;
+    }
+
+    &__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      background-color: $bg-hover;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__info {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    &__name {
+      font-size: $font-size-sm;
+      font-weight: $font-weight-bold;
+      color: $fg-primary;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &__track {
+      font-size: $font-size-xs;
+      color: $fg-secondary;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

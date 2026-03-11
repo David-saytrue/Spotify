@@ -1,0 +1,143 @@
+// Main Grid Layout for Spotify Clone - 3 Column Design (10X Exam)
+
+// Reset and base styles
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family:
+    "Satoshi",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
+  background-color: $bg-primary;
+  color: $fg-primary;
+  line-height: 1.5;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+// Global Top Header
+.top-header {
+  height: $top-header-height;
+  background-color: $bg-primary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $spacing-md;
+  z-index: $z-header;
+  flex-shrink: 0;
+  grid-area: top-header;
+}
+
+// Main App Container - Layout below header
+.main-layout {
+  display: grid;
+  grid-template-areas:
+    "sidebar-left top-header top-header"
+    "sidebar-left content-main sidebar-right"
+    "player-bar player-bar player-bar";
+  grid-template-columns: $sidebar-left-width 1fr $sidebar-right-width;
+  grid-template-rows: $top-header-height 1fr auto;
+  gap: $spacing-xs;
+  padding: $spacing-xs;
+  flex: 1;
+  overflow: hidden;
+}
+
+// Left Sidebar
+.sidebar-left {
+  width: $sidebar-left-width;
+  background-color: $bg-elevated;
+  border-radius: $radius-md;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: $z-sidebar;
+  flex-shrink: 0;
+  grid-area: sidebar-left;
+}
+
+// Main Content Area
+.content-main {
+  flex: 1;
+  background: linear-gradient(180deg, #1a1a1a 0%, $bg-main 100%);
+  border-radius: $radius-md;
+  overflow-y: auto;
+  position: relative;
+}
+
+// Content padding wrapper
+.content {
+  padding: $spacing-lg;
+}
+
+// Right Sidebar (Friends Activity)
+.sidebar-right {
+  width: $sidebar-right-width;
+  background-color: $bg-elevated;
+  border-radius: $radius-md;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: $z-sidebar;
+  flex-shrink: 0;
+}
+
+// Player Bar (Fixed at bottom)
+.player-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $player-height;
+  background-color: $bg-player;
+  border-top: 1px solid #282828;
+  z-index: $z-player;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  padding: 0 $spacing-md;
+}
+
+// Responsive adjustments
+@include respond-to(desktop) {
+  .sidebar-right {
+    display: none; // Hide friends activity on smaller screens
+  }
+}
+
+@include respond-to(tablet) {
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .sidebar-left {
+    width: 100%;
+    height: auto;
+    flex: none;
+  }
+}
+
+@include respond-to(mobile) {
+  .player-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+}
