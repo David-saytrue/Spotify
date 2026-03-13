@@ -25,21 +25,21 @@ body {
 
 .top-header {
   height: 64px;
-  background-color: #000000;
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-  z-index: 50;
+  z-index: 1000;
   flex-shrink: 0;
-  grid-area: top-header;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .main-layout {
   display: grid;
-  grid-template-areas: "sidebar-left top-header top-header" "sidebar-left content-main sidebar-right" "player-bar player-bar player-bar";
+  grid-template-areas: "sidebar-left content-main sidebar-right" "player-bar player-bar player-bar";
   grid-template-columns: 280px 1fr 280px;
-  grid-template-rows: 64px 1fr auto;
+  grid-template-rows: 1fr auto;
   gap: 4px;
   padding: 4px;
   flex: 1;
@@ -59,15 +59,18 @@ body {
 }
 
 .content-main {
-  flex: 1;
+  grid-area: content-main;
   background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
   border-radius: 8px;
   overflow-y: auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .content {
   padding: 24px;
+  flex: 1;
 }
 
 .sidebar-right {
@@ -134,7 +137,25 @@ body {
 .sidebar-right__library-title svg {
   width: 24px;
   height: 24px;
-  fill: #b3b3b3;
+  stroke: #ffffff;
+}
+
+.sidebar-library-actions {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.sidebar-library-actions svg {
+  width: 20px;
+  height: 20px;
+  stroke: #b3b3b3;
+  cursor: pointer;
+  transition: stroke 0.1s ease;
+}
+
+.sidebar-library-actions svg:hover {
+  stroke: #ffffff;
 }
 
 .sidebar-nav__list {
@@ -194,6 +215,17 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.sidebar-nav__chevron {
+  width: 16px;
+  height: 16px;
+  stroke: #898989;
+  opacity: 0.5;
+}
+
+.sidebar-nav__link:hover .sidebar-nav__chevron {
+  opacity: 1;
 }
 
 .friends-activity {
@@ -325,6 +357,14 @@ body {
 .nav-pill__text {
   font-size: 0.875rem;
   font-weight: 700;
+}
+
+.nav-pill:not(.nav-pill--active) .nav-pill__text {
+  color: #898989;
+}
+
+.nav-pill:not(.nav-pill--active) .nav-pill__icon svg {
+  stroke: #898989;
 }
 
 .header-icon {
@@ -615,11 +655,19 @@ body {
   margin-bottom: 24px;
 }
 .made-for-you__title {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 800;
   color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.made-for-you__title-icon {
+  width: 20px;
+  height: 20px;
+  stroke: #898989;
 }
 .made-for-you__controls {
   display: flex;
