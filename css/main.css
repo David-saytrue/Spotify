@@ -12,7 +12,16 @@ html {
 }
 
 body {
-  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family:
+    "Satoshi",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
   background-color: #000000;
   color: #ffffff;
   line-height: 1.5;
@@ -137,6 +146,7 @@ body {
 .sidebar-right__library-title svg {
   width: 24px;
   height: 24px;
+  fill: none;
   stroke: #ffffff;
 }
 
@@ -149,6 +159,7 @@ body {
 .sidebar-library-actions svg {
   width: 20px;
   height: 20px;
+  fill: none;
   stroke: #b3b3b3;
   cursor: pointer;
   transition: stroke 0.1s ease;
@@ -206,7 +217,8 @@ body {
 .sidebar-nav__icon svg {
   width: 24px;
   height: 24px;
-  fill: currentColor;
+  fill: none;
+  stroke: currentColor;
 }
 .sidebar-nav__text {
   font-size: 0.875rem;
@@ -220,6 +232,7 @@ body {
 .sidebar-nav__chevron {
   width: 16px;
   height: 16px;
+  fill: none;
   stroke: #898989;
   opacity: 0.5;
 }
@@ -333,7 +346,9 @@ body {
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 500;
-  transition: background-color 0.1s ease, transform 0.1s ease;
+  transition:
+    background-color 0.1s ease,
+    transform 0.1s ease;
 }
 .nav-pill:hover {
   background-color: #282828;
@@ -352,7 +367,8 @@ body {
 .nav-pill__icon svg {
   width: 20px;
   height: 20px;
-  fill: currentColor;
+  fill: none;
+  stroke: currentColor;
 }
 .nav-pill__text {
   font-size: 0.875rem;
@@ -377,7 +393,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.1s ease, transform 0.1s ease;
+  transition:
+    background-color 0.1s ease,
+    transform 0.1s ease;
   color: #b3b3b3;
 }
 .header-icon:hover {
@@ -388,7 +406,8 @@ body {
 .header-icon svg {
   width: 20px;
   height: 20px;
-  fill: currentColor;
+  fill: none;
+  stroke: currentColor;
 }
 
 .header-avatar {
@@ -442,7 +461,9 @@ body {
   font-family: inherit;
   color: #b3b3b3;
   cursor: pointer;
-  transition: color 0.1s ease, transform 0.1s ease;
+  transition:
+    color 0.1s ease,
+    transform 0.1s ease;
 }
 .player-controls__button:hover {
   color: #ffffff;
@@ -450,7 +471,8 @@ body {
 .player-controls__button svg {
   width: 16px;
   height: 16px;
-  fill: currentColor;
+  fill: none;
+  stroke: currentColor;
 }
 .player-controls__button--play {
   width: 32px;
@@ -537,7 +559,8 @@ body {
 .player-volume__button svg {
   width: 16px;
   height: 16px;
-  fill: currentColor;
+  fill: none;
+  stroke: currentColor;
 }
 .player-volume__bar {
   width: 80px;
@@ -627,7 +650,9 @@ body {
   font-family: inherit;
   color: #b3b3b3;
   cursor: pointer;
-  transition: color 0.1s ease, transform 0.1s ease;
+  transition:
+    color 0.1s ease,
+    transform 0.1s ease;
   width: 32px;
   height: 32px;
   display: flex;
@@ -642,7 +667,8 @@ body {
 .player-actions__button svg {
   width: 18px;
   height: 18px;
-  fill: currentColor;
+  fill: none;
+  stroke: currentColor;
 }
 
 .made-for-you {
@@ -697,7 +723,8 @@ body {
 .made-for-you__arrow svg {
   width: 14px;
   height: 14px;
-  fill: #ffffff;
+  fill: none;
+  stroke: #ffffff;
 }
 .made-for-you__menu {
   border: none;
@@ -722,7 +749,8 @@ body {
 .made-for-you__menu svg {
   width: 14px;
   height: 14px;
-  fill: #ffffff;
+  fill: none;
+  stroke: #ffffff;
 }
 .made-for-you__cards {
   display: grid;
@@ -787,7 +815,10 @@ body {
   justify-content: center;
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.1s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.1s ease;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 .card-item__play-button:hover {
@@ -860,7 +891,8 @@ body {
 .filters__view-toggle svg {
   width: 20px;
   height: 20px;
-  fill: #b3b3b3;
+  fill: none;
+  stroke: #b3b3b3;
 }
 
 .chip {
@@ -878,7 +910,9 @@ body {
   border-radius: 50px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.1s ease, transform 0.1s ease;
+  transition:
+    background-color 0.1s ease,
+    transform 0.1s ease;
 }
 .chip:hover {
   background-color: rgba(255, 255, 255, 0.3);
@@ -894,7 +928,16 @@ body {
 }
 
 body {
-  font-family: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family:
+    "Satoshi",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -952,7 +995,8 @@ html {
   }
 }
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
