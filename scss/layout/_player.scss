@@ -1,75 +1,106 @@
-// Player Bar Styles for Spotify Clone - Figma Design
+// Player Bar Styles for Spotify Clone - Enhanced
 
 .player-bar {
-  // All three sections mapped to the Grid defined in _grid.scss: 1fr 2fr 1fr
-  &__left {
+  flex-shrink: 0;
+  width: calc(100% - 32px); // Add margin space
+  height: 64px; // More compact
+  background-color: #2b2b31; // Specific dark gray-blue from image
+  margin: 16px; // Floating effect
+  border-radius: 12px; // Rounded corners
+  z-index: $z-player;
+  display: flex; // Use flex for linear layout
+  align-items: center;
+  padding: 0 16px;
+  gap: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+
+  &__left, &__center, &__right {
     display: flex;
     align-items: center;
-    gap: $spacing-xl; // Space between playback controls and volume
-    justify-content: flex-start;
+    border: none;
+    padding: 0;
+    margin: 0;
+    gap: 12px;
+  }
+
+  &__left {
+    flex-shrink: 0;
   }
 
   &__center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 1; // Progress bar takes space
+    min-width: 200px;
+    padding: 0 8px;
   }
 
   &__right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    flex-shrink: 0;
+    gap: 12px;
+  }
+
+  &__separator {
+    width: 1px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0 4px;
   }
 }
 
-// Playback Controls (Left section)
+// Playback Controls
 .player-controls {
   display: flex;
   align-items: center;
-  gap: $spacing-md;
+  gap: 16px;
 
   &__buttons {
     display: flex;
     align-items: center;
-    gap: $spacing-sm;
+    gap: 12px;
   }
 
   &__button {
     @include button-reset;
-    color: $fg-secondary;
+    color: #b3b3b3;
     cursor: pointer;
-    transition:
-      color $transition-fast,
-      transform $transition-fast;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
-      color: $fg-primary;
+      color: #ffffff;
+    }
+
+    &:active {
+      transform: scale(0.9);
     }
 
     svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
     }
 
-    &--play {
+    &-play {
       width: 32px;
       height: 32px;
+      background-color: #1ed760;
       border-radius: 50%;
-      background-color: $spotify-green;
-      color: $bg-primary;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        transform: scale(1.05);
-        color: $bg-primary;
-      }
-
+      color: #000000;
+      padding: 0;
+      
       svg {
         width: 14px;
         height: 14px;
+        fill: currentColor;
+        stroke: none;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+        background-color: #1fdf64;
       }
     }
   }
@@ -77,132 +108,54 @@
   &__progress {
     display: flex;
     align-items: center;
-    gap: $spacing-xs;
-    width: 250px;
+    gap: 12px;
+    width: 100%;
   }
 
   &__time {
     font-size: 11px;
-    color: $fg-tertiary;
-    min-width: 30px;
-    text-align: center;
+    color: #a7a7a7;
+    min-width: 32px;
+    font-weight: 400;
   }
 
   &__bar {
     flex: 1;
-    height: 4px;
-    background-color: #4d4d4d;
+    height: 3px;
+    background-color: #3e3e42;
     border-radius: 2px;
     cursor: pointer;
     position: relative;
 
     &:hover {
       .player-controls__bar-fill {
-        background-color: $spotify-green;
-      }
-
-      .player-controls__bar-thumb {
-        opacity: 1;
+        background-color: #1ed760;
       }
     }
   }
 
   &__bar-fill {
     height: 100%;
-    background-color: $fg-primary;
+    background-color: #ffffff;
     border-radius: 2px;
-    transition: background-color $transition-fast;
-  }
-
-  &__bar-thumb {
-    position: absolute;
-    right: -4px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-    background-color: $fg-primary;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity $transition-fast;
+    width: 30%;
   }
 }
 
-// Volume (Left section)
-.player-volume {
-  display: flex;
-  align-items: center;
-  gap: $spacing-xs;
-
-  &__button {
-    @include button-reset;
-    color: $fg-secondary;
-    cursor: pointer;
-    transition: color $transition-fast;
-
-    &:hover {
-      color: $fg-primary;
-    }
-
-    svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
-    }
-  }
-
-  &__bar {
-    width: 80px;
-    height: 4px;
-    background-color: #4d4d4d;
-    border-radius: 2px;
-    cursor: pointer;
-    position: relative;
-
-    &:hover {
-      .player-volume__bar-fill {
-        background-color: $spotify-green;
-      }
-
-      .player-volume__bar-thumb {
-        opacity: 1;
-      }
-    }
-  }
-
-  &__bar-fill {
-    height: 100%;
-    background-color: $fg-primary;
-    border-radius: 2px;
-  }
-
-  &__bar-thumb {
-    position: absolute;
-    right: -4px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-    background-color: $fg-primary;
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity $transition-fast;
-  }
-}
-
-// Track Info (Center section)
+// Track Info in the center-right area as per image
 .player-track-info {
   display: flex;
   align-items: center;
-  gap: $spacing-md; // slightly larger gap
+  gap: 10px;
+  max-width: 250px;
+  min-width: 180px;
 
   &__cover {
-    width: 56px; // Adjusting cover size
-    height: 56px;
-    border-radius: $radius-md;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
     overflow: hidden;
-    background-color: $bg-hover;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
 
     img {
       width: 100%;
@@ -214,59 +167,67 @@
   &__details {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    justify-content: center;
+    overflow: hidden;
   }
 
   &__title {
-    font-size: $font-size-md;
-    color: $fg-primary;
-    font-weight: $font-weight-bold;
-    cursor: pointer;
-
-    &:hover {
-      text-decoration: underline;
-    }
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
   }
 
-  &__artist {
-    font-size: $font-size-sm;
-    color: $fg-secondary;
-    cursor: pointer;
-
-    &:hover {
-      text-decoration: underline;
-      color: $fg-primary;
-    }
+  &__artist, &__album {
+    font-size: 11px;
+    color: #a7a7a7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
   }
 }
 
-// Player Actions (Right section)
-.player-actions {
+.player-bar__actions {
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
+  gap: 10px;
 
-  &__button {
-    @include button-reset;
-    color: $fg-secondary;
-    cursor: pointer;
-    transition: color $transition-fast, transform $transition-fast;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-
-    &:hover {
-      color: $fg-primary;
-      transform: scale(1.1);
-    }
-
+  .player-controls__button {
     svg {
       width: 18px;
       height: 18px;
-      fill: currentColor;
     }
   }
 }
+
+// Volume section
+.volume-bar {
+  display: flex;
+  align-items: center;
+  color: #a7a7a7;
+  
+  svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+}
+
+.header-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #0076ff; // Blue avatar from image
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+

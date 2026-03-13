@@ -1,4 +1,4 @@
-// Sidebar Styles for Spotify Clone 
+// Sidebar Styles for Spotify Clone
 
 // Common Sidebar Properties (Left & Right)
 .sidebar-left,
@@ -10,7 +10,7 @@
   &__library-title {
     font-size: $font-size-md;
     font-weight: $font-weight-bold;
-    color: $fg-primary; // No longer uppercase to match modern Figma
+    color: $fg-primary;
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
@@ -19,7 +19,8 @@
     svg {
       width: 24px;
       height: 24px;
-      fill: $fg-secondary;
+      fill: none;
+      stroke: $fg-primary;
     }
   }
 }
@@ -48,7 +49,18 @@
       background-color: $bg-hover;
 
       .sidebar-nav__text {
-        color: $spotify-green;
+        color: $fg-primary;
+        font-weight: $font-weight-bold;
+      }
+
+      .sidebar-nav__icon svg {
+        stroke: $fg-primary;
+        stroke-width: 3;
+      }
+
+      .sidebar-nav__icon--fill svg {
+        fill: $fg-primary;
+        stroke: none;
       }
     }
   }
@@ -57,7 +69,7 @@
     display: flex;
     align-items: center;
     gap: $spacing-sm;
-    padding: 10px $spacing-md;
+    padding: 12px $spacing-md;
     color: $fg-secondary;
     text-decoration: none;
     width: 100%;
@@ -81,7 +93,13 @@
     svg {
       width: 24px;
       height: 24px;
+      fill: none;
+      stroke: currentColor;
+    }
+
+    &--fill svg {
       fill: currentColor;
+      stroke: none;
     }
   }
 
@@ -92,6 +110,18 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  &__chevron {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: #898989;
+    opacity: 0.5;
+  }
+
+  &__link:hover &__chevron {
+    opacity: 1;
   }
 }
 
@@ -174,4 +204,46 @@
       text-overflow: ellipsis;
     }
   }
+}
+
+// Friend avatar border colors
+.friend-item__avatar--red {
+  border: 2px solid #ed5a5a !important;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.friend-item__avatar--blue {
+  border: 2px solid #5aaced !important;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.friend-item__avatar--green {
+  border: 2px solid #5aed7b !important;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.friend-item__avatar--yellow {
+  border: 2px solid #ede85a !important;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.friend-item__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.friend-item__time {
+  font-size: $font-size-xs;
+  color: $fg-tertiary;
+  flex-shrink: 0;
 }

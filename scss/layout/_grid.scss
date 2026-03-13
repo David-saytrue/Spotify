@@ -1,4 +1,4 @@
-// Main Grid Layout for Spotify Clone - 3 Column Design (10X Exam)
+// Main Grid Layout for Spotify Clone - Flexbox Design (matching original working CSS)
 
 // Reset and base styles
 *,
@@ -34,96 +34,87 @@ body {
   flex-direction: column;
 }
 
-// Global Top Header
+// Main App Container
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+// Main Content Wrapper (sidebar + main content)
+.main-layout__content {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+// Global Top Header (moved inside content area, sticky)
 .top-header {
   height: $top-header-height;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
+  background-color: $bg-primary;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 $spacing-md;
   z-index: $z-header;
   flex-shrink: 0;
-  grid-area: top-header;
   position: sticky;
   top: 0;
 }
 
-// Main App Container - Layout below header
-.main-layout {
-  display: grid;
-  grid-template-areas:
-    "sidebar-left top-header top-header"
-    "sidebar-left content-main sidebar-right"
-    "player-bar player-bar player-bar";
-  grid-template-columns: $sidebar-left-width 1fr $sidebar-right-width;
-  grid-template-rows: $top-header-height 1fr auto;
-  gap: $spacing-xs;
-  padding: $spacing-xs;
-  flex: 1;
-  overflow: hidden;
-}
-
 // Left Sidebar
 .sidebar-left {
-  width: $sidebar-left-width;
+  width: 280px;
   background-color: $bg-elevated;
-  border-radius: $radius-md;
+  border-radius: 0;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   z-index: $z-sidebar;
   flex-shrink: 0;
-  grid-area: sidebar-left;
+  height: 100%;
 }
 
 // Main Content Area
 .content-main {
   flex: 1;
-  background: linear-gradient(to bottom, #1f1f1f 0%, $bg-primary 200px);
-  border-radius: $radius-md;
+  background: linear-gradient(to bottom, #1a1a1a 0%, $bg-primary 200px);
+  border-radius: 0;
   overflow-y: auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 // Content padding wrapper
 .content {
   padding: $spacing-lg;
+  padding-bottom: 100px;
 }
 
 // Right Sidebar (Friends Activity)
 .sidebar-right {
-  width: $sidebar-right-width;
+  width: 280px;
   background-color: $bg-elevated;
-  border-radius: $radius-md;
+  border-radius: 0;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   z-index: $z-sidebar;
   flex-shrink: 0;
+  height: 100%;
 }
 
-// Player Bar (Fixed at bottom)
-.player-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: $player-height;
-  background-color: $bg-player;
-  border-top: 1px solid #282828;
-  z-index: $z-player;
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  align-items: center;
-  padding: 0 $spacing-md;
-}
+// Player Bar is styled in _player.scss
+
 
 // Responsive adjustments
 @include respond-to(desktop) {
   .sidebar-right {
-    display: none; // Hide friends activity on smaller screens
+    display: none;
   }
 }
 
