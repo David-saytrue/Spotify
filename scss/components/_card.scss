@@ -12,11 +12,21 @@
   }
 
   &__title {
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
-    color: $fg-primary;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: none;
+    letter-spacing: -0.2px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .made-for-you__title-icon {
+      width: 20px;
+      height: 20px;
+      stroke: #a7a7a7;
+      stroke-width: 2.2;
+    }
   }
 
   &__controls {

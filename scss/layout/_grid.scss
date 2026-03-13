@@ -37,7 +37,8 @@ body {
 // Global Top Header
 .top-header {
   height: $top-header-height;
-  background-color: $bg-primary;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,6 +46,8 @@ body {
   z-index: $z-header;
   flex-shrink: 0;
   grid-area: top-header;
+  position: sticky;
+  top: 0;
 }
 
 // Main App Container - Layout below header
@@ -78,7 +81,7 @@ body {
 // Main Content Area
 .content-main {
   flex: 1;
-  background: linear-gradient(180deg, #1a1a1a 0%, $bg-main 100%);
+  background: linear-gradient(to bottom, #1f1f1f 0%, $bg-primary 200px);
   border-radius: $radius-md;
   overflow-y: auto;
   position: relative;
